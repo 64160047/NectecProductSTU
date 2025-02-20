@@ -1,47 +1,73 @@
 <template>
     <section class="w-full min-h-screen bg-gradient-to-b from-blue-100 to-white text-center py-16">
-      <!-- 🔹 หัวข้อ (เพิ่มระยะห่าง) -->
+      <!-- 🔹 หัวข้อ -->
       <h2 class="text-6xl font-extrabold text-gray-900 mb-16 font-playfair tracking-wide">
         Products
       </h2>
   
       <!-- 🔹 Grid แสดงสินค้า -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 px-12 max-w-8xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 px-12 max-w-8xl mx-auto">
         <div v-for="product in products" :key="product.name"
-          class="bg-white p-10 rounded-3xl shadow-2xl transform transition hover:scale-105 flex flex-col items-center h-[520px]">
-          <img :src="product.image" :alt="product.name" class="w-44 h-44 object-contain">
-          <h3 class="text-3xl font-semibold mt-6 text-gray-900 font-poppins">{{ product.name }}</h3>
-          <p class="text-gray-600 text-lg mt-4">{{ product.description }}</p>
+          class="bg-white rounded-3xl shadow-2xl transform transition hover:scale-105 flex flex-col h-[500px] overflow-hidden">
+          
+          <!-- ✅ รูปภาพมี Animation -->
+          <div class="w-full h-[60%] flex items-center justify-center">
+            <img :src="product.image" :alt="product.name"
+                 class="w-[85%] h-[85%] object-contain rounded-t-3xl opacity-0 animate-fadeIn transition-transform duration-700 ease-in-out hover:scale-110">
+          </div>
+  
+          <!-- ✅ ข้อมูลสินค้า (เลื่อน description ขึ้นมาใกล้หัวข้อ) -->
+          <div class="p-6 flex flex-col items-center justify-between h-[40%]">
+            <h3 class="text-2xl font-serif text-purple-600 font-poppins">{{ product.name }}</h3>
+            <p class="font-serif text-gray-600 text-md mt-1">{{ product.description }}</p> <!-- ลดช่องว่างตรงนี้ -->
+          </div>
         </div>
       </div>
   
-      <!-- 🔹 ปุ่ม All Product -->
-      <div class="mt-16">
-        <button class="px-12 py-5 text-xl font-semibold bg-purple-600 text-white rounded-full shadow-xl hover:bg-purple-700 transition">
+      <!-- 🔹 ปุ่ม All Product (เลื่อนลงล่าง) -->
+      <div class="mt-20">
+        <button class="px-10 py-4 text-lg font-semibold bg-purple-600 text-white rounded-full shadow-xl hover:bg-purple-700 transition">
           All Product
         </button>
       </div>
     </section>
-  </template>
+</template>
   
-  <script setup>
-  const products = [
-    { name: "Patthumma LLM", image: "/path/to/image1.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { name: "Abdul GI", image: "/path/to/image2.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-    { name: "Sontana", image: "/path/to/image3.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  ];
-  </script>
-  
-  <!-- ✅ ใช้ Google Fonts + Tailwind -->
-  <style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@500&display=swap');
-  
-  .font-playfair {
-    font-family: 'Playfair Display', serif;
+<script setup>
+import PathummaImage from '@/assets/images/Pathumma.png';
+
+const products = [
+  { name: "Patthumma LLM", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { name: "Abdul GI", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { name: "Sontana", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+];
+</script>
+
+<!-- ✅ ใช้ Google Fonts + Tailwind -->
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@500&display=swap');
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ✅ Custom Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .font-poppins {
-    font-family: 'Poppins', sans-serif;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  </style>
-  
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+</style>
