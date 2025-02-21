@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full min-h-screen bg-gradient-to-b from-purple-100 to-white text-center py-16">
+  <section class="w-full min-h-screen bg-gradient-to-b from-purple-100 to-white min-h-screen text-center py-16">
     <!-- 🔹 ปุ่มย้อนกลับ -->
     <div class="absolute top-6 left-6">
       <router-link to="/" 

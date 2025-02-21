@@ -4,14 +4,14 @@
         
         <!-- 🔹 Contact us -->
         <div class="text-center md:text-left">
-          <h4 class="text-2xl font-extrabold text-purple-400">Contact Us</h4>
+          <h4 class="text-2xl font-extrabold text-green-300">Contact Us</h4>
           <p class="text-lg text-gray-300 mt-2">Email: example@email.com</p>
           <p class="text-lg text-gray-300">Phone: +123 456 7890</p>
         </div>
   
         <!-- 🔹 Information -->
         <div class="text-center md:text-left">
-          <h4 class="text-2xl font-extrabold text-purple-400">Information</h4>
+          <h4 class="text-2xl font-extrabold text-green-300">Information</h4>
           <p class="text-lg text-gray-300 mt-2">Privacy Policy</p>
           <p class="text-lg text-gray-300">Terms & Conditions</p>
         </div>
