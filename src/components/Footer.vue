@@ -1,5 +1,5 @@
 <template>
-    <footer class="w-full h-[30vh] bg-[#040A26] text-white py-12 px-20">
+    <footer id="footer" class="w-full h-[30vh] bg-[#040A26] text-white py-12 px-20">
       <div class="container mx-auto flex flex-col md:flex-row justify-between items-center max-w-7xl space-y-8 md:space-y-0">
         
         <!-- 🔹 Contact us -->
@@ -33,4 +33,3 @@
     font-family: 'Playfair Display', serif;
   }
   </style>
-  

@@ -1,5 +1,5 @@
 <template>
-    <section
+    <section id="products"
         class="relative w-full min-h-screen bg-gradient-to-br from-[#2A1D72] via-[#2C327C] to-[#04C484] text-center py-16">
         <!-- 🔹 รูปพื้นหลัง -->
         <div class="absolute inset-0 bg-cover bg-center opacity-50 z-0 mix-blend-overlay"
