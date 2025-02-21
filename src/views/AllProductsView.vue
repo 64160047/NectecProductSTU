@@ -16,7 +16,7 @@
     <!-- 🔹 Grid แสดงสินค้า -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 px-12 max-w-8xl mx-auto">
       <div v-for="product in products" :key="product.name"
-        class="bg-white rounded-3xl shadow-lg flex flex-col items-center p-8 h-[640px] transition duration-300 transform hover:scale-105">
+        class="bg-white rounded-3xl shadow-lg flex flex-col items-center p-8 h-[540px] transition duration-300 transform hover:scale-105">
         
         <!-- ✅ รูปสินค้า (ขยายให้สมดุล) -->
         <div class="w-[90%] h-[55%] flex items-center justify-center overflow-hidden rounded-t-3xl">
