@@ -1,7 +1,12 @@
 <template>
-    <section class="w-full min-h-screen bg-gradient-to-b from-blue-100 to-white text-center py-16">
+    <section class="relative w-full min-h-screen bg-gradient-to-br from-[#2A1D72] via-[#2C327C] to-[#04C484] text-center py-16">
+  <!-- 🔹 รูปพื้นหลัง -->
+  <div
+    class="absolute inset-0 bg-cover bg-center opacity-50 z-0 mix-blend-overlay"
+    style="background-image: url('/src/assets/images/stars-1845852_1920.jpg');"
+  ></div>
       <!-- 🔹 หัวข้อ -->
-      <h2 class="text-6xl font-extrabold text-gray-900 mb-16 font-playfair tracking-wide">
+      <h2 class="text-6xl font-extrabold text-white mb-16 font-playfair tracking-wide">
         Products
       </h2>
   
@@ -26,7 +31,7 @@
   
       <!-- 🔹 ปุ่ม All Product (เลื่อนลงล่าง) -->
       <div class="mt-20">
-        <button class="px-10 py-4 text-lg font-semibold bg-purple-600 text-white rounded-full shadow-xl hover:bg-purple-700 transition">
+        <button class="px-10 py-4 text-lg font-semibold bg-purple-600 text-white rounded-full shadow-xl hover:bg-purple-500 transition">
           All Product
         </button>
       </div>

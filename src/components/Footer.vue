@@ -1,9 +1,9 @@
 <template>
-    <footer class="w-full h-[30vh] bg-gradient-to-r from-black to-purple-900 text-white py-14 px-24">
+    <footer class="w-full h-[30vh] bg-[#29262C] text-white py-14 px-24">
       <div class="container mx-auto flex justify-between max-w-full">
         <!-- 🔹 Contact us -->
         <div>
-          <h4 class="text-2xl font-extrabold">Contact us</h4>
+          <h4 class="text-2xl font-extrabold">Contactblack  us</h4>
           <p class="text-lg text-gray-300 mt-2">xxxxxxxxx</p>
           <p class="text-lg text-gray-300">xxxxxxxxx</p>
         </div>
