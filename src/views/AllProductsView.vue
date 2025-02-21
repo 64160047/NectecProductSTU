@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full min-h-screen bg-gradient-to-b from-purple-100 to-white min-h-screen text-center py-16">
+  <section class="w-full min-h-screen bg-gradient-to-br from-[#97B8FF] via-[#B0B1FF] to-[#80FFDA]  min-h-screen text-center py-16">
     <!-- 🔹 ปุ่มย้อนกลับ -->
     <div class="absolute top-6 left-6">
       <router-link to="/" 
@@ -9,7 +9,7 @@
     </div>
 
     <!-- 🔹 หัวข้อ -->
-    <h2 class="text-5xl font-extrabold text-gray-900 mb-12 font-playfair tracking-wide">
+    <h2 class="text-5xl font-extrabold text-purple-900 mb-12 font-playfair tracking-wide">
       All Products
     </h2>
 
