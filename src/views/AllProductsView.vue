@@ -7,7 +7,7 @@
     
 
       <!-- 🔹 หัวข้อ -->
-      <h2 class="text-5xl font-extrabold text-black mt-10 mb-12 font-playfair tracking-wide">
+      <h2 class="text-5xl font-extrabold text-white mt-10 mb-12 font-playfair tracking-wide">
         All Products
       </h2>
 
@@ -60,17 +60,42 @@ const products = [
   font-family: 'Poppins', sans-serif;
 }
 
-/* ✅ ทำให้พื้นหลังเป็น Gradient ที่เคลื่อนไหวตลอด */
 .animated-bg {
-  background: linear-gradient(-45deg, #97B8FF, #c8c8ee, #9ce9d3, #c1c7f7);
+  background: radial-gradient(circle at 20% 30%, rgba(52, 80, 200, 0.3), transparent),
+              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent),
+              linear-gradient(-45deg, #1282d2, #110636, #580cae, #4e74ff);
   background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
+  animation: gradientMove 10s ease infinite;
 }
 
-/* ✅ กำหนด animation */
-@keyframes gradientAnimation {
+/* ✅ Animation ให้ Gradient เคลื่อนที่ */
+@keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ✅ เอฟเฟกต์แสงแบบ Soft Glow */
+@keyframes glowingLight {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.3); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+.glowing-light {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(0, 153, 255, 0.4), transparent);
+  border-radius: 50%;
+  animation: glowingLight 5s infinite alternate;
+  filter: blur(25px);
+}
+
+
+
 </style>
+
+
+
+
