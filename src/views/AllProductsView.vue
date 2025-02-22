@@ -4,8 +4,6 @@
     <NavBar />
 
     <section id="products" class="animated-bg w-full min-h-screen text-center py-24 relative">
-    
-
       <!-- 🔹 หัวข้อ -->
       <h2 class="text-5xl font-extrabold text-white mt-10 mb-12 font-playfair tracking-wide">
         All Products
@@ -14,18 +12,22 @@
       <!-- 🔹 Grid แสดงสินค้า -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 px-12 max-w-8xl mx-auto">
         <div v-for="product in products" :key="product.name"
-          class="bg-white rounded-3xl shadow-lg flex flex-col items-center p-8 h-[540px] transition duration-300 transform hover:scale-105">
+          class="bg-white text-black rounded-3xl border-2 border-gray-300 shadow-lg shadow-gray-500
+                 flex flex-col items-center p-8 h-[560px] transition duration-300 transform hover:scale-105 
+                 hover:shadow-xl hover:shadow-purple-400">
 
           <!-- ✅ รูปสินค้า -->
-          <div class="w-[90%] h-[55%] flex items-center justify-center overflow-hidden rounded-t-3xl">
+          <div class="w-[90%] h-[50%] flex items-center justify-center overflow-hidden rounded-t-3xl">
             <img :src="product.image" :alt="product.name"
               class="w-full h-full object-cover transition duration-500 hover:scale-110">
           </div>
 
           <!-- ✅ ข้อมูลสินค้า -->
-          <div class="p-6 flex flex-col items-center justify-center h-[45%]">
-            <h3 class="text-3xl font-semibold text-purple-700 font-poppins">{{ product.name }}</h3>
-            <p class="text-gray-600 text-lg mt-2 text-center leading-relaxed">
+          <div class="p-6 flex flex-col items-center justify-center h-[50%]">
+            <h3 class="text-3xl font-semibold text-purple-600 font-poppins text-center min-h-[50px]">
+              {{ product.name }}
+            </h3>
+            <p class="text-gray-700 text-xl mt-3 text-center leading-relaxed min-h-[90px]">
               {{ product.description }}
             </p>
           </div>
@@ -40,12 +42,14 @@ import PathummaImage from '@/assets/images/Pathumma.png';
 import NavBar from '@/components/NavBar.vue'; // ✅ นำเข้า Navbar
 
 const products = [
-  { name: "Patthumma LLM", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { name: "Abdul GI", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { name: "Sontana", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { name: "Party", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { name: "Chatbot Arena", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { name: "DocChat", image: PathummaImage, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { name: "Patthumma LLM", image: PathummaImage, description: "นวัตกรรมการสื่อสารที่สามารถตอบคำถาม ให้คำปรึกษา แนะนำข้อมูล และให้บริการต่างๆ ในรูปแบบของข้อความหรือการสนทนา  " },
+  { name: "ABDUL Chatbot Platform", image: PathummaImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท" },
+  { name: "CopyCatch", image: PathummaImage, description: "ระบบตรวจสอบการคัดลอกและลอกเลียนเอกสารอิเล็กทรอนิกส์แบบอัตโนมัติ " },
+  { name: "SSENSE", image: PathummaImage, description: "ระบบวิเคราะห์ความคิดเห็นข้อความภาษาไทย โดยวิเคราะห์ในเชิงจุดประสงค์ของข้อความ" },
+  { name: "Sontana", image: PathummaImage, description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ โดยตอบ FAQ ด้วยสีหน้า ท่าทาง และน้ำเสียงที่สุภาพ  " },
+  { name: "DocChat", image: PathummaImage, description: "เทคโนโลยีปัญญาประดิษฐ์สรุปสาระสำคัญของเอกสาร ที่ผู้ใช้งานสามารถพูดคุยตอบโต้หรือตั้งคำถามเกี่ยวกับเอกสารได้ " },
+  { name: "Partii", image: PathummaImage, description: "ระบบแปลงเสียงพูดให้เป็นข้อความภาษาไทย โดยปัจจุบันมี 2 รูปแบบ คือ Partii Enterprise และ Partii2go " },
+  { name: "Vaja", image: PathummaImage, description: "ซอฟต์แวร์ที่แปลงข้อความภาษาไทย/อังกฤษเป็นเสียงพูดได้ทั้งภาษาไทยและภาษาอังกฤษ ที่มีคุณภาพเสียงใกล้เคียงกับมนุษย์" },
 ];
 </script>
 
@@ -60,42 +64,8 @@ const products = [
   font-family: 'Poppins', sans-serif;
 }
 
+/* ✅ พื้นหลัง Gradient */
 .animated-bg {
-  background: radial-gradient(circle at 20% 30%, rgba(52, 80, 200, 0.3), transparent),
-              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1), transparent),
-              linear-gradient(-45deg, #1282d2, #110636, #580cae, #4e74ff);
-  background-size: 400% 400%;
-  animation: gradientMove 10s ease infinite;
+  background: linear-gradient(to bottom, #1A1043, #311B92, #512DA8);
 }
-
-/* ✅ Animation ให้ Gradient เคลื่อนที่ */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ✅ เอฟเฟกต์แสงแบบ Soft Glow */
-@keyframes glowingLight {
-  0% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.3); }
-  100% { opacity: 0.2; transform: scale(1); }
-}
-
-.glowing-light {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(0, 153, 255, 0.4), transparent);
-  border-radius: 50%;
-  animation: glowingLight 5s infinite alternate;
-  filter: blur(25px);
-}
-
-
-
 </style>
-
-
-
-
