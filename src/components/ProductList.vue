@@ -1,9 +1,11 @@
 <template>
     <section id="products"
         class="relative w-full min-h-screen bg-gradient-to-br from-[#2A1D72] via-[#2C327C] to-[#04C484] text-center py-16">
+        
         <!-- 🔹 รูปพื้นหลัง -->
         <div class="absolute inset-0 bg-cover bg-center opacity-50 z-0 mix-blend-overlay"
             style="background-image: url('/src/assets/images/stars-1845852_1920.jpg')"></div>
+
         <!-- 🔹 หัวข้อ -->
         <h2 class="text-6xl font-extrabold text-white mb-16 font-playfair tracking-wide">
             Products
@@ -11,8 +13,10 @@
 
         <!-- 🔹 Grid แสดงสินค้า -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 px-12 max-w-8xl mx-auto">
-            <div v-for="product in products" :key="product.name"
-                class="bg-white rounded-3xl shadow-2xl transform transition hover:scale-105 flex flex-col h-[500px] overflow-hidden p-6">
+            <div v-for="product in products" :key="product.name" 
+                @click="goToWebsite(product.link)" 
+                class="bg-white rounded-3xl shadow-2xl transform transition hover:scale-105 flex flex-col h-[500px] 
+                      overflow-hidden p-6 cursor-pointer hover:shadow-purple-400">
 
                 <!-- ✅ รูปภาพ (มุมมนทุกด้าน) -->
                 <div class="w-full h-[55%] flex items-center justify-center rounded-3xl overflow-hidden">
@@ -48,21 +52,32 @@ import PathummaImage from "@/assets/images/Pathumma.png";
 import AbdulImage from '@/assets/images/Abdul.png';
 import SontanaImage from '@/assets/images/Sontana.png';
 
+// ✅ ฟังก์ชันเปิดลิงก์
+const goToWebsite = (link) => {
+    if (link) {
+        window.open(link, "_blank");
+    }
+};
+
+// ✅ ข้อมูลสินค้า (เพิ่ม `link` สำหรับการนำทาง)
 const products = [
     {
         name: "Patthumma LLM",
         image: PathummaImage,
         description: "ระบบ AI ที่สามารถตอบคำถาม ให้คำปรึกษา และแนะนำข้อมูลในรูปแบบข้อความหรือการสนทนา",
+        link: "https://aiforthai.in.th/pathumma-llm/"
     },
     {
         name: "Abdul Chatbot Platform",
         image: AbdulImage,
         description: "แพลตฟอร์มสำหรับสร้างแชทบอท",
+        link: "https://abdul.ai"
     },
     {
         name: "Sontana",
         image: SontanaImage,
         description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ",
+        link: "https://example.com/sontana"
     },
 ];
 </script>
