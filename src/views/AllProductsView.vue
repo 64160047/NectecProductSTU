@@ -57,8 +57,8 @@ const products = [
   { name: "CopyCatch", image: CopyCatchImage, description: "ระบบตรวจสอบการคัดลอกเอกสารอัตโนมัติ", link: "https://www.copycatch.in.th" },
   { name: "SSENSE", image: SsenseImage, description: "ระบบวิเคราะห์ความคิดเห็นของข้อความภาษาไทย", link: "https://aiforthai.in.th/service_sa.php" },
   { name: "Sontana", image: SontanaImage, description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ", link: "https://example.com/sontana" },
-  { name: "Partii", image: PartiiImage, description: "ระบบแปลงเสียงพูดให้เป็นข้อความภาษาไทย", link: "https://example.com/partii" },
-  { name: "Vaja", image: VajaImage, description: "ซอฟต์แวร์แปลงข้อความเป็นเสียงพูด รองรับทั้งภาษาไทยและอังกฤษ", link: "https://example.com/vaja" },
+  { name: "Partii", image: PartiiImage, description: "ระบบแปลงเสียงพูดให้เป็นข้อความภาษาไทย", link: "https://aiforthai.in.th/service_st.php" },
+  { name: "Vaja", image: VajaImage, description: "ซอฟต์แวร์แปลงข้อความเป็นเสียงพูด รองรับทั้งภาษาไทยและอังกฤษ", link: "https://aiforthai.in.th/service_ts.php" },
 ];
 </script>
 
