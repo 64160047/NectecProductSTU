@@ -4,37 +4,39 @@
     <NavBar />
 
     <section id="products" class="animated-bg w-full min-h-screen text-center py-24 relative">
-      <!-- 🔹 หัวข้อ -->
-      <h2 class="text-6xl font-extrabold text-white mt-10 mb-12 font-playfair tracking-wide">
-        All Products
-      </h2>
+      <!-- 🔹 รูปพื้นหลัง -->
+      <div class="absolute inset-0 bg-cover bg-center opacity-50 z-0 mix-blend-overlay"
+        style="background-image: url('/src/assets/images/stars-1845852_1920.jpg')"></div>
 
-      <div class="flex justify-start px-12 mb-10">
-  <div class="relative w-80">
-    <select v-model="selectedCategory"
-      class="w-full px-6 py-4 text-xl text-gray-900 bg-white border-2 border-gray-300 rounded-2xl shadow-lg
+      <!-- 🔹 หัวข้อและ Filter อยู่ในบรรทัดเดียวกัน แต่มีระยะห่างเพิ่มขึ้น -->
+      <div class="flex justify-between items-center px-12 mb-16 mt-10"> 
+        <!-- ✅ หัวข้อทางซ้าย -->
+        <h2 class="text-6xl font-extrabold text-white font-playfair tracking-wide">
+          All Products
+        </h2>
+
+        <!-- ✅ ตัวเลือก Filter อยู่ทางขวา และเพิ่ม padding ให้กว้างขึ้น -->
+        <div class="relative w-96"> <!-- เพิ่มความกว้างของ dropdown -->
+          <select v-model="selectedCategory"
+            class="w-full px-8 py-5 text-xl text-gray-900 bg-white border-2 border-gray-300 rounded-3xl shadow-lg
              focus:outline-none focus:ring-4 focus:ring-purple-500 focus:border-purple-500 
              transition duration-300 hover:border-purple-400 appearance-none pr-10">
-      <option value="All Product" class="bg-white text-lg text-gray-900"> All Products 📌</option>
-      <option value="Speech" class="bg-white text-lg text-gray-900"> Speech 🗣️ </option>
-      <option value="Text" class="bg-white text-lg text-gray-900">Text 📝 </option>
-      <option value="TextVoice" class="bg-white text-lg text-gray-900"> Speech and Text 🗣️ 📝 </option>
-    </select>
+            <option value="All Product" class="bg-white text-lg text-gray-900">All Products 📌 </option>
+            <option value="Speech" class="bg-white text-lg text-gray-900">Speech 🗣️ </option>
+            <option value="Text" class="bg-white text-lg text-gray-900">Text 📝 </option>
+            <option value="TextVoice" class="bg-white text-lg text-gray-900">Speech and Text 🗣️📝 </option>
+          </select>
+        </div>
+      </div>
 
-  </div>
-</div>
-
-
-
-
-      <!-- 🔹 Grid แสดงสินค้า (เพิ่มระยะห่าง) -->
+      <!-- 🔹 Grid แสดงสินค้า -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-12 max-w-8xl mx-auto">
         <a v-for="product in filteredProducts" :key="product.name" :href="product.link" target="_blank"
           rel="noopener noreferrer" class="bg-white text-black rounded-3xl border-2 border-gray-300 shadow-lg
                  flex flex-col items-center p-6 h-[520px] transition-all duration-300 transform 
                  hover:scale-105 hover:shadow-xl hover:shadow-purple-400 cursor-pointer">
 
-          <!-- ✅ รูปสินค้า (ขอบมน 4 ด้าน) -->
+          <!-- ✅ รูปสินค้า -->
           <div class="w-[90%] h-[60%] flex items-center justify-center overflow-hidden rounded-2xl">
             <img :src="product.image" :alt="product.name"
               class="w-full h-full object-cover transition duration-500 hover:scale-110 rounded-2xl">
@@ -49,12 +51,15 @@
               {{ product.description }}
             </p>
           </div>
-
         </a>
       </div>
     </section>
+      <!-- ✅ ใช้ Footer Component -->
+      <Footer />
   </div>
 </template>
+
+
 
 <script setup>
 import { ref, computed } from 'vue';
@@ -66,6 +71,7 @@ import SsenseImage from '@/assets/images/Ssense.png';
 import SontanaImage from '@/assets/images/Sontana.png';
 import VajaImage from '@/assets/images/Vaja.png';
 import NavBar from '@/components/NavBar.vue';
+import Footer from '@/components/Footer.vue';
 
 // ✅ กำหนดค่าหมวดหมู่ที่เลือก
 const selectedCategory = ref("All Product");
@@ -106,4 +112,5 @@ const filteredProducts = computed(() => {
 .animated-bg {
   background: linear-gradient(to bottom, #1A1043, #311B92, #512DA8);
 }
+
 </style>
