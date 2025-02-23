@@ -9,16 +9,16 @@
         style="background-image: url('/src/assets/images/stars-1845852_1920.jpg')"></div>
 
       <!-- 🔹 หัวข้อและ Filter อยู่ในบรรทัดเดียวกัน แต่มีระยะห่างเพิ่มขึ้น -->
-      <div class="flex justify-between items-center px-12 mb-16 mt-10"> 
+      <div class="flex justify-between items-center px-12 mb-16 mt-10">
         <!-- ✅ หัวข้อทางซ้าย -->
-        <h2 class="text-6xl font-extrabold text-white font-playfair tracking-wide">
+        <h2
+          class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 animate-glow tracking-wide">
           All Products
         </h2>
 
         <!-- ✅ ตัวเลือก Filter อยู่ทางขวา และเพิ่ม padding ให้กว้างขึ้น -->
         <div class="relative w-96"> <!-- เพิ่มความกว้างของ dropdown -->
-          <select v-model="selectedCategory"
-            class="w-full px-8 py-5 text-xl text-gray-900 bg-white border-2 border-gray-300 rounded-3xl shadow-lg
+          <select v-model="selectedCategory" class="w-full px-8 py-5 text-xl text-gray-900 bg-white border-2 border-gray-300 rounded-3xl shadow-lg
              focus:outline-none focus:ring-4 focus:ring-purple-500 focus:border-purple-500 
              transition duration-300 hover:border-purple-400 appearance-none pr-10">
             <option value="All Product" class="bg-white text-lg text-gray-900">All Products 📌 </option>
@@ -32,30 +32,30 @@
       <!-- 🔹 Grid แสดงสินค้า -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-12 max-w-8xl mx-auto">
         <a v-for="product in filteredProducts" :key="product.name" :href="product.link" target="_blank"
-          rel="noopener noreferrer" class="bg-white text-black rounded-3xl border-2 border-gray-300 shadow-lg
-                 flex flex-col items-center p-6 h-[520px] transition-all duration-300 transform 
-                 hover:scale-105 hover:shadow-xl hover:shadow-purple-400 cursor-pointer">
+          rel="noopener noreferrer" class="bg-white/10 border text-black  shadow-lg
+                 flex flex-col items-center p-10 h-[450px] transition-all duration-500 transform 
+                 hover:scale-105 hover:shadow-xl hover:shadow-blue-400 cursor-pointer">
 
           <!-- ✅ รูปสินค้า -->
-          <div class="w-[90%] h-[60%] flex items-center justify-center overflow-hidden rounded-2xl">
+          <div class="w-[90%] h-[80%] flex items-center justify-center overflow-hidden ">
             <img :src="product.image" :alt="product.name"
-              class="w-full h-full object-cover transition duration-500 hover:scale-110 rounded-2xl">
+              class="w-full h-full object-cover transition duration-500 hover:scale-110 ">
           </div>
 
           <!-- ✅ ข้อมูลสินค้า -->
           <div class="p-6 flex flex-col items-center text-center h-[40%]">
-            <h3 class="text-4xl font-extrabold text-purple-700 font-sans mb-3">
+            <h3 class="text-4xl  text-purple-300 font-sans mb-3">
               {{ product.name }}
             </h3>
-            <p class="text-gray-700 text-xl leading-relaxed">
+            <p class="text-white text-xl leading-relaxed">
               {{ product.description }}
             </p>
           </div>
         </a>
       </div>
     </section>
-      <!-- ✅ ใช้ Footer Component -->
-      <Footer />
+    <!-- ✅ ใช้ Footer Component -->
+    <Footer />
   </div>
 </template>
 
@@ -108,9 +108,58 @@ const filteredProducts = computed(() => {
   font-family: 'Poppins', sans-serif;
 }
 
+
 /* ✅ พื้นหลัง Gradient */
 .animated-bg {
   background: linear-gradient(to bottom, #1A1043, #311B92, #512DA8);
 }
+.bg-gradient-space {
+  background: linear-gradient(to bottom, #13072E, #2E1065, #4C1D95);
+}
 
+@keyframes moveStars {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 10%; } /* ขยับขึ้น */
+  100% { background-position: 50% 0%; } /* กลับลงมา */
+}
+
+.animated-bg {
+ 
+  background-image: url('/src/assets/images/starpurple.png');
+  background-size: cover;
+  background-position: 50% 0%;
+  animation: moveStars 10s ease-in-out infinite; /* เคลื่อนที่ขึ้น-ลง */
+}
+
+
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 0, 255, 0.3);
+  }
+
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes wave {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s infinite alternate ease-in-out, wave 3s infinite ease-in-out;
+}
 </style>
