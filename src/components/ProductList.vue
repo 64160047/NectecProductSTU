@@ -12,29 +12,28 @@
         <!-- 🔹 Grid แสดงสินค้า -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 px-12 max-w-8xl mx-auto">
             <div v-for="product in products" :key="product.name"
-                class="bg-white rounded-3xl shadow-2xl transform transition hover:scale-105 flex flex-col h-[500px] overflow-hidden">
-                <!-- ✅ รูปภาพมี Animation -->
-                <div class="w-full h-[60%] flex items-center justify-center">
+                class="bg-white rounded-3xl shadow-2xl transform transition hover:scale-105 flex flex-col h-[500px] overflow-hidden p-6">
+
+                <!-- ✅ รูปภาพ (มุมมนทุกด้าน) -->
+                <div class="w-full h-[55%] flex items-center justify-center rounded-3xl overflow-hidden">
                     <img :src="product.image" :alt="product.name"
-                        class="w-[85%] h-[85%] object-contain rounded-t-3xl opacity-0 animate-fadeIn transition-transform duration-700 ease-in-out hover:scale-110" />
+                        class="w-full h-full object-contain rounded-3xl transition-transform duration-700 ease-in-out hover:scale-110" />
                 </div>
 
-                <!-- ✅ ข้อมูลสินค้า (เลื่อน description ขึ้นมาใกล้หัวข้อ) -->
-                <div class="p-6 flex flex-col items-center justify-between h-[40%]">
-                    <h3 class="text-2xl font-serif text-purple-600 font-poppins">
+                <!-- ✅ ข้อมูลสินค้า (ขยับคำอธิบายขึ้นมา) -->
+                <div class="flex flex-col items-center justify-center h-[45%]">
+                    <h3 class="text-3xl font-bold text-purple-700 font-poppins text-center">
                         {{ product.name }}
                     </h3>
-                    <p class="font-serif text-gray-600 text-md mt-1">
+                    <p class="text-gray-700 text-lg text-center leading-relaxed mt-3 px-4">
                         {{ product.description }}
                     </p>
-                    <!-- ลดช่องว่างตรงนี้ -->
                 </div>
             </div>
         </div>
 
-
         <!-- 🔹 ปุ่ม All Product -->
-        <div class="mt-20 relative z-10">
+        <div class="mt-16 relative z-10">
             <router-link to="/all-products"
                 class="px-12 py-5 text-xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full shadow-lg hover:shadow-2xl transition-transform duration-300 transform hover:scale-110">
                 All Products
@@ -42,30 +41,28 @@
         </div>
 
     </section>
-
 </template>
 
 <script setup>
 import PathummaImage from "@/assets/images/Pathumma.png";
+import AbdulImage from '@/assets/images/Abdul.png';
+import SontanaImage from '@/assets/images/Sontana.png';
 
 const products = [
     {
         name: "Patthumma LLM",
         image: PathummaImage,
-        description:
-            "Lorem ipsum odor amet, consectetuer adipiscing elit. Ornare ac sit dictum finibus vehicula libero. Lectus ultricies viverra dui habitant torquent litora ante. Fusce nunc vivamus consectetur nunc quis nunc. Est donec aenean elit, mi ipsum purus.",
+        description: "ระบบ AI ที่สามารถตอบคำถาม ให้คำปรึกษา และแนะนำข้อมูลในรูปแบบข้อความหรือการสนทนา",
     },
     {
-        name: "Abdul GI",
-        image: PathummaImage,
-        description:
-            "Lorem ipsum odor amet, consectetuer adipiscing elit. Ornare ac sit dictum finibus vehicula libero. Lectus ultricies viverra dui habitant torquent litora ante. Fusce nunc vivamus consectetur nunc quis nunc. Est donec aenean elit, mi ipsum purus.",
+        name: "Abdul Chatbot Platform",
+        image: AbdulImage,
+        description: "แพลตฟอร์มสำหรับสร้างแชทบอท",
     },
     {
         name: "Sontana",
-        image: PathummaImage,
-        description:
-            "Lorem ipsum odor amet, consectetuer adipiscing elit. Ornare ac sit dictum finibus vehicula libero. Lectus ultricies viverra dui habitant torquent litora ante. Fusce nunc vivamus consectetur nunc quis nunc. Est donec aenean elit, mi ipsum purus.",
+        image: SontanaImage,
+        description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ",
     },
 ];
 </script>
@@ -80,22 +77,5 @@ const products = [
 
 .font-poppins {
     font-family: "Poppins", sans-serif;
-}
-
-/* ✅ Custom Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fadeIn {
-    animation: fadeIn 1s ease-out forwards;
 }
 </style>
