@@ -3,61 +3,64 @@
     <!-- ✅ แสดง Navbar -->
     <NavBar />
 
-    <section id="products" class="animated-bg w-full min-h-screen text-center py-24 relative">
+    <section id="products" class="animated-bg w-full min-h-screen text-center pt-24 pb-16 relative">
       <!-- 🔹 รูปพื้นหลัง -->
       <div class="absolute inset-0 bg-cover bg-center opacity-50 z-0 mix-blend-overlay"
         style="background-image: url('/src/assets/images/stars-1845852_1920.jpg')"></div>
 
-      <!-- 🔹 หัวข้อและ Filter อยู่ในบรรทัดเดียวกัน แต่มีระยะห่างเพิ่มขึ้น -->
-      <div class="flex justify-between items-center px-12 mb-16 mt-10">
-        <!-- ✅ หัวข้อทางซ้าย -->
+      <!-- 🔹 หัวข้อและ Filter -->
+      <div class="flex flex-col md:flex-row justify-between items-center px-12 mb-8 mt-12">
         <h2
-          class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 animate-glow tracking-wide">
+          class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500 animate-glow tracking-wide">
           All Products
         </h2>
 
-        <!-- ✅ ตัวเลือก Filter อยู่ทางขวา และเพิ่ม padding ให้กว้างขึ้น -->
-        <div class="relative w-96"> <!-- เพิ่มความกว้างของ dropdown -->
-          <select v-model="selectedCategory" class="w-full px-8 py-5 text-xl text-gray-900 bg-white border-2 border-gray-300 rounded-3xl shadow-lg
+        <div class="relative w-full md:w-80 mt-4 md:mt-0">
+          <select v-model="selectedCategory"
+            class="w-full px-6 py-4 text-lg text-gray-900 bg-white border-2 border-gray-300 rounded-3xl shadow-lg
              focus:outline-none focus:ring-4 focus:ring-purple-500 focus:border-purple-500 
-             transition duration-300 hover:border-purple-400 appearance-none pr-10">
-            <option value="All Product" class="bg-white text-lg text-gray-900">All Products 📌 </option>
-            <option value="Speech" class="bg-white text-lg text-gray-900">Speech 🗣️ </option>
-            <option value="Text" class="bg-white text-lg text-gray-900">Text 📝 </option>
-            <option value="TextVoice" class="bg-white text-lg text-gray-900">Speech and Text 🗣️📝 </option>
+             transition duration-300 hover:border-purple-400 appearance-none pr-8">
+            <option value="All Product">All Products 📌</option>
+            <option value="Speech">Speech 🗣️</option>
+            <option value="Text">Text 📝</option>
+            <option value="TextVoice">Speech and Text 🗣️📝</option>
           </select>
         </div>
       </div>
 
       <!-- 🔹 Grid แสดงสินค้า -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-12 max-w-8xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4 md:px-8 max-w-8xl mx-auto">
         <a v-for="product in filteredProducts" :key="product.name" :href="product.link" target="_blank"
-          rel="noopener noreferrer" class="bg-white/10 border text-black  shadow-lg
-                 flex flex-col items-center p-10 h-[450px] transition-all duration-500 transform 
+          rel="noopener noreferrer"
+          class="bg-white/10 border text-black rounded-3xl shadow-lg max-w-md w-full mx-auto flex flex-col p-6 transition-all duration-500 transform 
                  hover:scale-105 hover:shadow-xl hover:shadow-blue-400 cursor-pointer">
 
-          <!-- ✅ รูปสินค้า -->
-          <div class="w-[90%] h-[80%] flex items-center justify-center overflow-hidden ">
+          <!-- ✅ รูปสินค้า (ขนาดเท่ากัน + responsive) -->
+          <div class="w-full h-56 flex items-center justify-center rounded-2xl overflow-hidden aspect-[4/3]">
             <img :src="product.image" :alt="product.name"
-              class="w-full h-full object-cover transition duration-500 hover:scale-110 ">
+              class="w-full h-full object-contain rounded-2xl transition duration-500 hover:scale-110">
           </div>
 
           <!-- ✅ ข้อมูลสินค้า -->
-          <div class="p-6 flex flex-col items-center text-center h-[40%]">
-            <h3 class="text-4xl  text-purple-300 font-sans mb-3">
+          <div class="p-3 flex flex-col items-center text-center">
+            <h3 class="text-xl text-purple-300 font-serif font-semibold mb-2">
               {{ product.name }}
             </h3>
-            <p class="text-white text-xl leading-relaxed">
+            <p class="text-white text-base leading-tight">
               {{ product.description }}
             </p>
           </div>
         </a>
       </div>
     </section>
+
     <!-- ✅ ใช้ Footer Component -->
     <Footer />
   </div>
 </template>
+
+
+
 
 
 
@@ -66,10 +69,11 @@ import { ref, computed } from 'vue';
 import PathummaImage from '@/assets/images/Pathumma.png';
 import AbdulImage from '@/assets/images/Abdul.png';
 import PartiiImage from '@/assets/images/Partii.png';
-import CopyCatchImage from '@/assets/images/CopyCath.png';
 import SsenseImage from '@/assets/images/Ssense.png';
 import SontanaImage from '@/assets/images/Sontana.png';
 import VajaImage from '@/assets/images/Vaja.png';
+import CopyCatchOneImage from '@/assets/images/CopyCathone.png';
+import SsenseOneImage from '@/assets/images/SsenseOne.png';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -79,9 +83,9 @@ const selectedCategory = ref("All Product");
 // ✅ สินค้าแต่ละตัวมี `category`
 const products = [
   { name: "Patthumma LLM", image: PathummaImage, description: "ระบบ AI ที่สามารถตอบคำถาม ให้คำปรึกษา และแนะนำข้อมูล", link: "https://aiforthai.in.th/pathumma-llm/", category: "Text" },
-  { name: "ABDUL Chatbot Platform", image: AbdulImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท", link: "https://abdul.ai", category: "Text" },
-  { name: "CopyCatch", image: CopyCatchImage, description: "ระบบตรวจสอบการคัดลอกเอกสารอัตโนมัติ", link: "https://www.copycatch.in.th", category: "Text" },
-  { name: "SSENSE", image: SsenseImage, description: "ระบบวิเคราะห์ความคิดเห็นของข้อความภาษาไทย", link: "https://aiforthai.in.th/service_sa.php", category: "Text" },
+  { name: "Abdul Chatbot Platform", image: AbdulImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท", link: "https://abdul.ai", category: "Text" },
+  { name: "CopyCatch", image: CopyCatchOneImage, description: "ระบบตรวจสอบการคัดลอกเอกสารอัตโนมัติ", link: "https://www.copycatch.in.th", category: "Text" },
+  { name: "S-SENSE", image: SsenseOneImage, description: "ระบบวิเคราะห์ความคิดเห็นของข้อความภาษาไทย", link: "https://aiforthai.in.th/service_sa.php", category: "Text" },
   { name: "Sontana", image: SontanaImage, description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ", link: "https://example.com/sontana", category: "TextVoice" },
   { name: "Partii", image: PartiiImage, description: "ระบบแปลงเสียงพูดให้เป็นข้อความภาษาไทย", link: "https://aiforthai.in.th/service_st.php", category: "Speech" },
   { name: "Vaja", image: VajaImage, description: "ซอฟต์แวร์แปลงข้อความเป็นเสียงพูด รองรับทั้งภาษาไทยและอังกฤษ", link: "https://aiforthai.in.th/service_ts.php", category: "Speech" },
