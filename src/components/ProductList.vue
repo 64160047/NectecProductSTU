@@ -14,24 +14,24 @@
         <!-- 🔹 Grid แสดงสินค้า -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-12 max-w-8xl mx-auto">
             <div v-for="product in products" :key="product.name" @click="goToWebsite(product.link)"
-                class="bg-black/30  border border-white/10 rounded-3xl shadow-lg transform transition hover:scale-105 
-                      flex flex-col w-full max-w-[5000px] h-[550px] mx-auto overflow-hidden p-6 cursor-pointer hover:shadow-purple-400">
+                class="bg-black/30 border border-white/10 rounded-3xl shadow-lg transform transition hover:scale-105 
+                      flex flex-col w-full max-w-[500px] h-[550px] mx-auto overflow-hidden p-6 cursor-pointer hover:shadow-purple-400">
 
-                <!-- ✅ รูปภาพ (ขนาดคงที่) -->
-                <div class="w-full h-[280px] flex items-center justify-center rounded-3xl overflow-hidden ">
+                <!-- ✅ รูปภาพ (เว้นระยะห่างไม่ให้ติดขอบ) -->
+                <div class="w-full h-[250px] flex items-center justify-center rounded-3xl overflow-hidden p-4">
                     <img :src="product.image" :alt="product.name"
-                        class="w-full h-full object-contain transition-transform duration-100 ease-in-out hover:scale-110" />
+                        class="w-full h-full object-contain transition-transform duration-200 ease-in-out hover:scale-110" />
                 </div>
 
-                <!-- ✅ ข้อมูลสินค้า (คงขนาดชื่อและคำอธิบาย) -->
-                <div class="flex flex-col items-center justify-center mt-4 text-center gap-2">
-                    <!-- ✅ ชื่อสินค้า (คงขนาด) -->
+                <!-- ✅ ข้อมูลสินค้า -->
+                <div class="flex flex-col items-center justify-center mt-2 text-center gap-2">
+                    <!-- ✅ ชื่อสินค้า -->
                     <h3
                         class="text-3xl font-bold text-purple-400 font-poppins min-h-[60px] h-[60px] flex items-center justify-center">
                         {{ product.name }}
                     </h3>
 
-                    <!-- ✅ คำอธิบายสินค้า (คงขนาด) -->
+                    <!-- ✅ คำอธิบายสินค้า -->
                     <p class="text-white text-xl leading-relaxed px-4 whitespace-normal break-words">
                         {{ product.description }}
                     </p>
@@ -50,6 +50,7 @@
 
     </section>
 </template>
+
 
 
 <script setup>
