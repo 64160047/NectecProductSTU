@@ -36,7 +36,7 @@
                  hover:scale-105 hover:shadow-xl hover:shadow-blue-400 cursor-pointer">
 
           <!-- ✅ รูปสินค้า (ใหญ่ขึ้น + responsive) -->
-          <div class="w-full h-80 md:h-96 flex items-center justify-center rounded-2xl overflow-hidden aspect-[4/3]">
+          <div class="w-full h-80 md:h-96 flex items-center justify-center rounded-2xl overflow-hidden aspect-[4/3] ">
             <img :src="product.image" :alt="product.name"
               class="w-full h-full object-contain rounded-2xl transition duration-500 hover:scale-110">
           </div>
@@ -73,11 +73,11 @@ import { ref, computed } from 'vue';
 import PathummaImage from '@/assets/images/Pathumma.png';
 import AbdulImage from '@/assets/images/Abdul.png';
 import PartiiImage from '@/assets/images/Partii.png';
-import SsenseImage from '@/assets/images/Ssense.png';
 import SontanaImage from '@/assets/images/Sontana.png';
 import VajaImage from '@/assets/images/Vaja.png';
-import CopyCatchOneImage from '@/assets/images/CopyCathone.png';
-import SsenseTwoImage from '@/assets/images/SsenseTwo.png';
+import SsensetwoImage from '@/assets/images/ssense.jpg';
+import CopycatchImage from '@/assets/images/copycath.jpg';
+import AbdulDocChatImage from '@/assets/images/AbdulDocChat.png';
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -87,12 +87,13 @@ const selectedCategory = ref("All Product");
 // ✅ สินค้าแต่ละตัวมี `category`
 const products = [
   { name: "Patthumma LLM", image: PathummaImage, description: "ระบบ AI ที่สามารถตอบคำถาม ให้คำปรึกษา และแนะนำข้อมูล", link: "https://aiforthai.in.th/pathumma-llm/", category: "Text" },
-  { name: "Abdul Chatbot Platform", image: AbdulImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท", link: "https://aiforthai.in.th/service_cb.php", category: "Text" },
-  { name: "CopyCatch", image: CopyCatchOneImage, description: "ระบบตรวจสอบการคัดลอกเอกสารอัตโนมัติ", link: "https://www.copycatch.in.th", category: "Text" },
-  { name: "S-SENSE", image: SsenseTwoImage, description: "ระบบวิเคราะห์ความคิดเห็นของข้อความภาษาไทย", link: "https://aiforthai.in.th/service_sa.php", category: "Text" },
+  { name: "Abdul Chatbot ", image: AbdulImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท", link: "https://chat.abdul.in.th/", category: "Text" },
+  { name: "CopyCatch", image: CopycatchImage, description: "ระบบตรวจสอบการคัดลอกเอกสารอัตโนมัติ", link: "https://www.copycatch.in.th", category: "Text" },
+  { name: "S-SENSE", image: SsensetwoImage, description: "ระบบวิเคราะห์ความคิดเห็นของข้อความภาษาไทย", link: "https://aiforthai.in.th/service_sa.php", category: "Text" },
   { name: "Sontana", image: SontanaImage, description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ", link: "https://example.com/sontana", category: "TextVoice" },
   { name: "Partii", image: PartiiImage, description: "ระบบแปลงเสียงพูดให้เป็นข้อความภาษาไทย", link: "https://aiforthai.in.th/service_st.php", category: "Speech" },
   { name: "Vaja", image: VajaImage, description: "ซอฟต์แวร์แปลงข้อความเป็นเสียงพูด รองรับทั้งภาษาไทยและอังกฤษ", link: "https://aiforthai.in.th/service_ts.php", category: "Speech" },
+  { name: "ABDUL DocChat", image: AbdulDocChatImage, description: "เครื่องมือ AI ที่สามารถสรุปสาระสำคัญของเอกสารโดยอาศัยความสามารถด้านการประมวลภาษาไทยจาก ‘OpenThaiLLM’", link: "https://docchat.abdul.in.th/", category: "Text" }
 ];
 
 // ✅ ฟิลเตอร์ข้อมูลตามหมวดหมู่
