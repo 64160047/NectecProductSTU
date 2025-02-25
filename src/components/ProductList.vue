@@ -56,6 +56,7 @@
 import PathummaImage from "@/assets/images/Pathumma.png";
 import AbdulImage from '@/assets/images/Abdul.png';
 import SontanaImage from '@/assets/images/Sontana.png';
+import PartiiImage from '@/assets/images/Partii.png';
 
 // ✅ ฟังก์ชันเปิดลิงก์
 const goToWebsite = (link) => {
@@ -76,13 +77,13 @@ const products = [
         name: "Abdul Chatbot Platform",
         image: AbdulImage,
         description: "แพลตฟอร์มสำหรับสร้างแชทบอท",
-        link: "https://abdul.ai"
+        link: "https://aiforthai.in.th/service_cb.php"
     },
     {
-        name: "Sontana",
-        image: SontanaImage,
-        description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ",
-        link: "https://example.com/sontana"
+        name: "Partii",
+        image: PartiiImage,
+        description: "ระบบแปลงเสียงพูดให้เป็นข้อความภาษาไทย",
+        link: "https://aiforthai.in.th/service_st.php"
     },
 ];
 </script>

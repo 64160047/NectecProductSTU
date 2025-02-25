@@ -87,7 +87,7 @@ const selectedCategory = ref("All Product");
 // ✅ สินค้าแต่ละตัวมี `category`
 const products = [
   { name: "Patthumma LLM", image: PathummaImage, description: "ระบบ AI ที่สามารถตอบคำถาม ให้คำปรึกษา และแนะนำข้อมูล", link: "https://aiforthai.in.th/pathumma-llm/", category: "Text" },
-  { name: "Abdul Chatbot Platform", image: AbdulImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท", link: "https://abdul.ai", category: "Text" },
+  { name: "Abdul Chatbot Platform", image: AbdulImage, description: "แพลตฟอร์มสำหรับสร้างแชทบอท", link: "https://aiforthai.in.th/service_cb.php", category: "Text" },
   { name: "CopyCatch", image: CopyCatchOneImage, description: "ระบบตรวจสอบการคัดลอกเอกสารอัตโนมัติ", link: "https://www.copycatch.in.th", category: "Text" },
   { name: "S-SENSE", image: SsenseTwoImage, description: "ระบบวิเคราะห์ความคิดเห็นของข้อความภาษาไทย", link: "https://aiforthai.in.th/service_sa.php", category: "Text" },
   { name: "Sontana", image: SontanaImage, description: "อวทาร์ให้บริการตอบคำถามแบบอัตโนมัติ พร้อมสีหน้าและน้ำเสียงที่สุภาพ", link: "https://example.com/sontana", category: "TextVoice" },
